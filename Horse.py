@@ -17,23 +17,27 @@ def parab(a, b, c, x0, x1, y0):
     y = (a*x)**2+b*x+c+y0
     return x, y
 
-def line(x0, x1, y0, y1):
-    
-    return x, y
 
 coords = circle(450, 100, 1100, -2, -0.5)
-plt.plot(coords[0], coords[1], lw=1, color='w', zorder=1)
+plt.plot(coords[0], coords[1], lw=2, color='w', zorder=1)
 
 
 coords_1 = circle(260, 660, 665, 0.6, 2.5)
-plt.plot(coords_1[0], coords_1[1], lw=1, color='w', zorder=1)
+plt.plot(coords_1[0], coords_1[1], lw=2, color='w', zorder=1)
+
+plt.plot([878, 890], [805, 630], lw=2, color='w', zorder=1)
 
 
-coords_2 = line()
-plt.plot(coords_2[0], coords_2[1], lw=1, color='w', zorder=1)
+coords_3 = circle(50, 940, 615, 3.05, 4.05)
+plt.plot(coords_3[0], coords_3[1], lw=2, color='w', zorder=1)
 
-coords_5 = circle(50, 740, 600, 1, 5)
-plt.plot(coords_5[0], coords_5[1], lw=1, color='w', zorder=1)
+coords_4 = circle(150, 770, 500, 6.8, 8)
+plt.plot(coords_4[0], coords_4[1], lw=2, color='w', zorder=1)
 
+coords_5 = circle(50, 740, 600, 1.4, 4.9)
+plt.plot(coords_5[0], coords_5[1], lw=2, color='w', zorder=1)
+
+coords_6 = circle(100, 770, 450, 6, 8.1)
+plt.plot(coords_6[0], coords_6[1], lw=2, color='w', zorder=1)
 
 plt.savefig('new_horse.png')
