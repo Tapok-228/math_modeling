@@ -18,7 +18,7 @@ def parab(a, b, c, x0, x1, y0):
     return x, y
 
 
-coords = circle(450, 100, 1100, -2, -0.5)
+coords = circle(450, 100, 1100, -1.79, -0.5)
 plt.plot(coords[0], coords[1], lw=2, color='w', zorder=1)
 
 
