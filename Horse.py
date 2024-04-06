@@ -22,7 +22,7 @@ coords = circle(450, 100, 1100, -1.79, -0.5)
 plt.plot(coords[0], coords[1], lw=2, color='w', zorder=1)
 
 
-coords_1 = circle(260, 660, 665, 0.6, 2.5)
+coords_1 = circle(260, 660, 665, -5.7, -3.8)
 plt.plot(coords_1[0], coords_1[1], lw=2, color='w', zorder=1)
 
 plt.plot([878, 890], [805, 630], lw=2, color='w', zorder=1)
@@ -64,5 +64,7 @@ plt.plot([1440, 1710], [1385, 1270], lw=2, color='w', zorder=1)
 coords_16 = circle(200, 1802, 1448, -2, -0.9)
 plt.plot(coords_16[0], coords_16[1], lw=2, color='w', zorder=1)
 
-
+plt.plot([1915, 1915], [1283, 1435], lw=2, color='w', zorder=1)
+plt.plot([1915, 0], [1435, 1435], lw=2, color='w', zorder=1)
+plt.plot([5, 5], [1425, 660], lw=2, color='w', zorder=1)
 plt.savefig('new_horse.png')
