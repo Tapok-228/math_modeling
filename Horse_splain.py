@@ -15,12 +15,13 @@ def circle(R, x0, y0, t0, t1):
 coords = circle(450, 100, 1100, -1.79, -0.5)
 plt.plot(coords[0], coords[1], lw=2, color='w', zorder=1)
 
-coords_1 = circle(260, 660, 665, -5.7, -3.8)
-plt.plot(coords_1[0], coords_1[1], lw=2, color='w', zorder=1)
+t=np.arange(8.6, 6.7, -0.1)
+x_1 = 240 * np.cos(t)+660
+y_1 = 240 * np.sin(t)+695
 
          
-x = np.append(coords[0], coords_1[0])
-y = np.append(coords[1], coords_1[1])
+x = np.append(coords[0], x_1)
+y = np.append(coords[1], y_1)
 
 
 spline_coords, figure_spline_part = interpolate.splprep([x, y], s=0)
