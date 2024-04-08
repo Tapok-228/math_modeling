@@ -1,4 +1,9 @@
 import numpy as np
+import matplotlib.pyplot as plt
+
+fig, ax = plt.subplots()
+
+import numpy as np
 from scipy import interpolate
 import matplotlib.pyplot as plt
 import shapely.geometry as geom
@@ -21,15 +26,18 @@ pointsnumber = 100
 x_limits = [-0.5, 2]
 y_limits = [-1, 1]
 
-points = []
+points_x, points_y = [], []
 for x_coord in np.linspace(*x_limits, pointsnumber):
     for y_coord in np.linspace(*y_limits, pointsnumber):
         p = geom.Point(x_coord, y_coord)
         if p.within(poly):
-            plt.plot(x_coord, y_coord, 'go', ms=0.5)
-            points.append([x_coord, y_coord])
+            points_x.append(x_coord)
+            points_y.append(y_coord)
 
-plt.plot(x, y, 'bo')
-plt.axis('equal')
-plt.plot(spline_curve[0], spline_curve[1], 'g')
-plt.savefig('Points_in_poligon.jpg')
+x = np.array(points_x)
+y = np.array(points_y)
+t = 5*np.sin((np.sqrt((x-0.75)**2+y**2)+1)/0.05)  # закон закрашивания
+
+points = ax.scatter(points_x, points_y, c=t)  # ставит точки
+c_bar = fig.colorbar(points)
+plt.savefig('crendel.png')
