@@ -38,7 +38,7 @@ def bell_function(x, y, intensity=1, dec_rate = [0.5, 0.5]):
 
 
 fig, ax = plt.subplots()
-sc_plot = ax.scatter(x_p, y_p, c=bell_function(x_p, y_p, 5, [0.05, 0.5]))
+sc_plot = ax.scatter(x_p, y_p, c=bell_function(x_p, y_p, 5, [0.5, 0.5]))
 cbar = fig.colorbar(sc_plot)
 cbar.set_label('Функция Белла')
 
