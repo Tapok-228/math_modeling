@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE Xdmf SYSTEM "Xdmf.dtd" []>
+<Xdmf Version="3.0" xmlns:xi="http://www.w3.org/2001/XInclude">
+<Domain>
+  <Grid GridType="Uniform" Name="PartType0">
+    <Topology NumberOfElements="5022" TopologyType="PolyVertex" NodesPerElement="1"/>
+    <Geometry GeometryType="XYZ">
+      <DataItem Dimensions="5022 3" Format="HDF" Precision="8">IC.hdf5:/PartType0/Coordinates</DataItem>
+    </Geometry>
+    <Attribute Name="PartType0 Masses" AttributeType="Scalar" Center="Node">
+      <DataItem Dimensions="5022 1" Format="HDF" Precision="8">IC.hdf5:/PartType0/Masses</DataItem>
+    </Attribute>
+    <Attribute Name="PartType0 ParticleIDs" AttributeType="Scalar" Center="Node">
+      <DataItem Dimensions="5022 1" Format="HDF" Precision="8">IC.hdf5:/PartType0/ParticleIDs</DataItem>
+    </Attribute>
+    <Attribute Name="PartType0 Velocities" AttributeType="Vector" Center="Node">
+      <DataItem Dimensions="5022 3" Format="HDF" Precision="8">IC.hdf5:/PartType0/Velocities</DataItem>
+    </Attribute>
+  </Grid>
+</Domain>
+</Xdmf>

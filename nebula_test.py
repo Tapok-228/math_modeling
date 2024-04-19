@@ -5,7 +5,7 @@ import shapely.geometry as geom
 import h5py
 import random
 
-phi = np.linspace(0, 2*np.pi, 100)
+phi = np.linspace(0, 4*np.pi, 100)
 R = 0.5 + np.cos(phi)
 x = R*np.cos(phi)
 y = R*np.sin(phi)
