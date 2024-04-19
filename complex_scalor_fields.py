@@ -37,9 +37,24 @@ def bell_function(x, y, intensity=1, dec_rate = [0.5, 0.5]):
     return scalor_func
 
 
+intensity_center_x = [-0.5, 0.5, -0.4, 0, 0.4]
+intensity_center_y = [0.3, 0.3, -0.5, -0.7, -0.5]
+intensity_values = [5, 5, 3, 1, 3]
+
+def scalor_function(x, y, intensity_center_x, intensity_center_y, intensity_values):
+    scalor_field = 0.0
+    for  i in range(len(intensity_center_x)):
+        scalor_field += intensity_values[i]*bell_function(x-intensity_center_x[i], y-intensity_center_y[i], 30, [5,5])
+    return scalor_field
+
+scalor_fields = []
+for i in range(len(x_p)):
+    calculate = scalor_function(x_p[i], y_p[i], intensity_center_x, intensity_center_y, intensity_values)
+    scalor_fields.append(calculate)
+
 fig, ax = plt.subplots()
-sc_plot = ax.scatter(x_p, y_p, c=bell_function(x_p, y_p, 5, [0.05, 0.5]))
+sc_plot = ax.scatter(x_p, y_p, c=scalor_fields)
 cbar = fig.colorbar(sc_plot)
 cbar.set_label('Функция Белла')
 
-plt.savefig('bell_func_fields.png')
+plt.savefig('complex_scalor_fields.png')
