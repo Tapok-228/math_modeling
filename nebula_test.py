@@ -33,7 +33,7 @@ for x_coord in np.linspace(*x_pictures_limits, points_number_per_side):
 x_p = np.array(points_coords[0::2])
 y_p = np.array(points_coords[1::2])
 
-def bell_function(x, y, intensity=1, dec_rate=[5, 5]):
+def bell_function(x, y, intensity=1, dec_rate=[100, 100]):
     scalor_func = intensity * np.exp(-dec_rate[0]*(x-0.8)**2-dec_rate[1]*(y-0)**2)
     return scalor_func
 
