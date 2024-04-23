@@ -61,6 +61,7 @@ for i in range(len(x_p)):
     gas_vel[i, 1] = float_type(0.0)
 
     
+    
 
 # gas_masses_0 = 2*1.6735575e-24 * 2*10**5 * 0.175*9.460e17 / (2*10**(-3))
 # gas_masses = np.full(gas_part_num, gas_masses_0, dtype=float_type)
@@ -92,7 +93,7 @@ for i in range(all_parts):
 all_mass = np.append(gas_masses, bg_mass)
 
 ##############################################
-IC = h5py.File('IC.hdf5', 'w')
+IC = h5py.File('IC_2.hdf5', 'w')
 header = IC.create_group("Header")
 part0 = IC.create_group("PartType0")
 
