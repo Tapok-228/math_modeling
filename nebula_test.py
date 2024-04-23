@@ -5,7 +5,7 @@ import shapely.geometry as geom
 import h5py
 import random
 
-phi = np.linspace(0, 4*np.pi, 100)
+phi = np.linspace(0, 2*np.pi, 40)
 R = 0.5 + np.cos(phi)
 x = R*np.cos(phi)
 y = R*np.sin(phi)
@@ -18,8 +18,8 @@ for i in range(len(spline_curve[0])):
     curve_coords.append([spline_curve[0][i], spline_curve[1][i]])
 
 polygon = geom.Polygon(curve_coords)
-points_number_per_side = 100
-x_pictures_limits = [-1, 1]
+points_number_per_side = 500
+x_pictures_limits = [-0.5, 2]
 y_pictures_limits = [-1, 1]
 
 points_coords = []
@@ -33,6 +33,10 @@ for x_coord in np.linspace(*x_pictures_limits, points_number_per_side):
 x_p = np.array(points_coords[0::2])
 y_p = np.array(points_coords[1::2])
 
+def bell_function(x, y, intensity=1, dec_rate=[0.5, 0.5]):
+    scalor_func = intensity * np.exp(-dec_rate[0]*(x-0.5)**2-dec_rate[1]*(y-0.5)**2)
+    return scalor_func
+
 ##############################################
 float_type = np.float64
 int_type = np.int32
@@ -45,6 +49,10 @@ box_size = 100 * picture_size
 gas_part_num = len(x_p)
 gas_coords = np.zeros([gas_part_num, 3], dtype=float_type)
 gas_vel = np.zeros([gas_part_num, 3], dtype=float_type)
+# gas_masses = np.zeros(len(x_p))
+gas_masses_0 = 2*1.6735575e-24 * 2*10**5 * 0.175*9.460e17 / (2*10**(-3))
+gas_masses = bell_function(x_p, y_p, gas_masses_0)
+
 for i in range(len(x_p)):
     gas_coords[i][0] = x_p[i] / picture_size + box_size/2
     gas_coords[i][1] = y_p[i] / picture_size + box_size/2
@@ -52,8 +60,10 @@ for i in range(len(x_p)):
     gas_vel[i, 0] = float_type(0.001)
     gas_vel[i, 1] = float_type(0.0)
 
-gas_masses_0 = 2*1.6735575e-24 * 2*10**5 * 0.175*9.460e17 / (2*10**(-3))
-gas_masses = np.full(gas_part_num, gas_masses_0, dtype=float_type)
+    
+
+# gas_masses_0 = 2*1.6735575e-24 * 2*10**5 * 0.175*9.460e17 / (2*10**(-3))
+# gas_masses = np.full(gas_part_num, gas_masses_0, dtype=float_type)
 
 ##############################################
 background_parts = 5000
